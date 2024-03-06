@@ -10,7 +10,7 @@ import java.util.List;
  * @author Juan Pujalte Martinez
  * @version 1.0 06/03/2024
  */
-public class Agenda {
+public class Agenda implements IAgenda {
     /**
      * The class List of contacts.
      */
@@ -31,6 +31,7 @@ public class Agenda {
      * @param name  The contact's name
      * @param phone The contact's phone number
      */
+    @Override
     public void addContact(String name, String phone) {
         boolean exists = false;
         for (Persona c : contacts) {
@@ -52,6 +53,7 @@ public class Agenda {
      *
      * @param name The name of the contact to remove
      */
+    @Override
     public void removeContact(String name) {
         Iterator<Persona> it = contacts.iterator();
 
@@ -71,6 +73,7 @@ public class Agenda {
      * @param oldPhone The phone number to replace with the new one.
      * @param newPhone The new phone number.
      */
+    @Override
     public void modifyPhoneNumber(String name, String oldPhone, String newPhone) {
         for (Persona c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
@@ -90,6 +93,7 @@ public class Agenda {
      *
      * @return A List of contacts.
      */
+    @Override
     public List<Persona> getContacts() {
         return this.contacts;
     }
